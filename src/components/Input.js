@@ -42,22 +42,24 @@ export default function Input() {
 
   const [inputValue, setInputValue] = useState(initialValue)
 //console.log(inputValue)
- 
+
 const changeInput = evt => {
     // When the input changes, its whole value can be found inside the event object.
     // Log out the synthetic event object 'evt' and see for yourself.
     const { value } = evt.target;
     setInputValue(value)
-
+  //console.log(value)
     /* STEP 4 */
   };
-  const reset = (event) => {
+  const reset = event => {
     /* STEP 5 */
-    event.preventDefault(initialValue)
-    setInputValue(initialValue);
-    
-  };
   
+   setInputValue(initialValue)
+    // console.log(setInputValue(initialValue)) 
+    event.preventDefault()
+
+  };
+
 
   const style = {
     fontSize: '1.5em',
@@ -74,8 +76,8 @@ const changeInput = evt => {
       <h2>Input</h2>
       <div style={style}>{inputValue}</div> {/* STEP 3 */}
       <div>
-  <input type='text' onChange={changeInput}/> {/* STEP 6 */}
-        <button type='reset' onClick={event => setInputValue(initialValue) }>Reset</button>
+        <input type='text' onChange={changeInput} id='input' /> {/* STEP 6 */}
+        <button type='reset'onClick={reset} >Reset</button>
       </div>
     </div>
   );
