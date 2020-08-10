@@ -50,7 +50,7 @@ import React, {useState} from 'react'; /* STEP 0 */
 
 export default function Counter() {
   const [number, setNumber] = useState(0)
-  console.log(number)
+  //console.log(number)
 
   const increment = (event) => {
     setNumber(number + 1)
