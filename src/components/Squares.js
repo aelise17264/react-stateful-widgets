@@ -20,8 +20,8 @@
  const listOfSquareIds = ['sqA', 'sqB', 'sqC', 'sqD'];
 
  export default function Squares() {
-   const [squares, setSquares] = useState(listOfSquareIds)
- const [activeSquare, setActiveSquare] = useState(listOfSquareIds)
+   const [squares] = useState(listOfSquareIds)
+ const [activeSquare, setActiveSquare] = useState(null)
 
   // Use the state hook twice, as we need two slices of state: 'squares' and
   // 'activeSquare'. One holds the _array_ of square ids, and the other keeps track
@@ -35,13 +35,7 @@
 
     //  id === activeSquare
     //  return setActiveSquare.className = ' active'
-
-    if (id === activeSquare){
-
-    return setActiveSquare.className = ' active'
-    }else{
-      return ''
-    }
+   return id === activeSquare ? ' active' : '';
    };
 
    const markActive = id => {
@@ -49,31 +43,10 @@
     // Set the id argument to be the active id in state
     // (unless it already is, in which case we should reset
     // the currently active square id back to initial state).
-  //  === id
-    //console.log(id)
-//     console.log('square selected')
-  
-// for(let i = 0; i <= squares.length; i++){
-//    console.log(document.getElementById(squares[i]))
-// setSquares({
-//   squares[id] = isChecked
-// })
+    setActiveSquare(id === activeSquare ? null : id)
 
-let selectedSquare = document.getElementById(id)
-console.log(id)
-if(selectedSquare.clicked === activeSquare.selectedIndex ){
-  selectedSquare.clicked === false
-  
-  return selectedSquare.className = 'square active'
-  
- }
 
    }
-
-     
-  
-   
-
 
   return (
     <div className='widget-squares container'>

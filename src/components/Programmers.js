@@ -25,29 +25,28 @@ const listOfAwesome = [
 ];
 
 export default function Programmers() {
-  const [programmer, setProgrammer] = useState('')
-  const [programmerId, setProgrammerId] = useState(listOfAwesome)
+  const [programmer] = useState(listOfAwesome)
+  const [programmerId, setProgrammerId] = useState(null)
   // We'll have to use the state hook twice, as we need two slices of state.
   // The programmers on the one hand, and the id of the featured programmer on the other.
 //console.log(programmerId)
 console.log(programmer)
 //console.log(programmerId[0].id)
-  programmerId.forEach(id => {
-    let pName = id.name
-    console.log(pName)
-  })
+  // programmerId.forEach(id => {
+  //   let pName = id.name
+  //   console.log(pName)
+  // })
 
-  const getNameOfFeatured = (event) => {
+  const getNameOfFeatured = id => {
     // This is not an event handler but a helper function. See its usage below.
     // It's going to need information from both slices of state!
     // Using the currently celebrated id, find inside the programmers slice of state
     // the _name_ of the currently celebrated programmer, and return it.
-    // let whichName = programmerId.forEach(id => {
-    //   programmer = id.name
-    //     console.log(programmer)
-    // })
     
-   
+    setProgrammerId(id === programmerId ? null : id)
+
+    
+    
     
   };
 
@@ -68,7 +67,9 @@ console.log(programmer)
           listOfAwesome.map(dev =>
             
             <div key={dev.id}>
-              {dev.name} <button onClick={() =>  dev.programmer }>Feature</button>
+              {dev.name} 
+              <button onClick={() => getNameOfFeatured(programmer.id)  }>
+                Feature</button>
             </div>
           )
         }
