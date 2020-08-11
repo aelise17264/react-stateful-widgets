@@ -30,10 +30,10 @@ export default function Programmers() {
   // We'll have to use the state hook twice, as we need two slices of state.
   // The programmers on the one hand, and the id of the featured programmer on the other.
 
-console.log(programmer[0].name)
+//console.log(programmer[0].name)
 
 
-  const getNameOfFeatured = (id) => {
+  const getNameOfFeatured = (id, _name_) => {
     // This is not an event handler but a helper function. See its usage below.
     // It's going to need information from both slices of state!
     // Using the currently celebrated id, find inside the programmers slice of state
@@ -41,8 +41,10 @@ console.log(programmer[0].name)
     
     setProgrammerId(id === programmer ? null : id)
     console.log(id)
-    
+    setProgrammerId(_name_ === programmer ? null : _name_)
+    console.log(_name_)
   };
+
 
 
   const style = {
@@ -73,7 +75,7 @@ console.log(programmer[0].name)
         // Ternaries are fantastic to render "one thing or the other" depending on the "truthiness" of something.
         // Pseudo-code: if the currently featured id is truthy render div 1, otherwise render div 2. Fix!
         false
-          ? <div style={style}>🎉 Let&apos;s celebrate {getNameOfFeatured(id)}! 🥳</div>
+          ? <div style={style}>🎉 Let&apos;s celebrate {getNameOfFeatured(true)}! 🥳</div>
           : <div style={style}>Pick an awesome programmer Name</div>
       }
     </div>
