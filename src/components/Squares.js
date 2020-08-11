@@ -37,6 +37,7 @@ const [activeSquare, setActiveSquare] = useState(listOfSquareIds)
     // return setActiveSquare.className = ' active'
 
     if (id === activeSquare){
+
     return setActiveSquare.className = ' active'
     }else{
       return ''
@@ -48,12 +49,29 @@ const [activeSquare, setActiveSquare] = useState(listOfSquareIds)
     // Set the id argument to be the active id in state
     // (unless it already is, in which case we should reset
     // the currently active square id back to initial state).
-    if (id ===  squares){
-      return setSquares()
-    }else{
-      return ''
-    }
-  };
+  // activeSquare.selectedIndex === id
+    //console.log(id)
+//     console.log('square selected')
+  
+
+
+for(let i = 0; i <= squares.length; i++){
+   console.log(document.getElementById(squares[i]))
+
+if(document.getElementById(id) === activeSquare.selectedIndex ){
+  document.getElementById(id).checked=false
+}
+
+//   document.getElementById(squares[i]).checked = false
+// }   
+// document.getElementById(id).checked = true
+
+return document.getElementById(id).className = 'square active'
+//     //console.log(selectedSquare.className)
+      //
+  }
+
+  }
 
   return (
     <div className='widget-squares container'>
