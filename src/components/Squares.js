@@ -33,7 +33,7 @@
     // matches the active square in state, empty string otherwise.
     // Right-click and "inspect element" on the square to see its effect.
 
-    //  id === activeSquare
+    //  id === activeSquare.selectedIndex
     //  return setActiveSquare.className = ' active'
    return id === activeSquare ? ' active' : '';
    };

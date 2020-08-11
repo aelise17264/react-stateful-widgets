@@ -33,16 +33,25 @@ export default function Programmers() {
 //console.log(programmer[0].name)
 
 
-  const getNameOfFeatured = (id, _name_) => {
+  const getNameOfFeatured = () => {
     // This is not an event handler but a helper function. See its usage below.
     // It's going to need information from both slices of state!
     // Using the currently celebrated id, find inside the programmers slice of state
     // the _name_ of the currently celebrated programmer, and return it.
     
-    setProgrammerId(id === programmer ? null : id)
-    console.log(id)
-    setProgrammerId(_name_ === programmer ? null : _name_)
-    console.log(_name_)
+    // setProgrammerId(id === programmer ? null : id)
+    // console.log(id)
+
+    const name = programmer.map(p => {
+      //console.log(p)
+   
+    if (programmerId === p.id){
+      
+      return p.name
+    }
+    
+  })
+  return name
   };
 
 
@@ -65,7 +74,7 @@ export default function Programmers() {
             
             <div key={dev.id}>
                 {dev.name} 
-                <button onClick={() => getNameOfFeatured(dev.id) }>
+                <button onClick={() => setProgrammerId(dev.id) }>
                 Feature</button>
             </div>
           )
@@ -74,8 +83,8 @@ export default function Programmers() {
       {
         // Ternaries are fantastic to render "one thing or the other" depending on the "truthiness" of something.
         // Pseudo-code: if the currently featured id is truthy render div 1, otherwise render div 2. Fix!
-        false
-          ? <div style={style}>🎉 Let&apos;s celebrate {getNameOfFeatured(true)}! 🥳</div>
+        programmerId
+          ? <div style={style}>🎉 Let&apos;s celebrate {getNameOfFeatured()}! 🥳</div>
           : <div style={style}>Pick an awesome programmer Name</div>
       }
     </div>
