@@ -1,40 +1,40 @@
-/*
-SQUARES Instructions
+// /*
+// SQUARES Instructions
 
-Watch this short video:
-https://tk-assets.lambdaschool.com/0aebd463-7c5e-4d0b-ad22-4da8f4b54e92_squares.gif
+// Watch this short video:
+// https://tk-assets.lambdaschool.com/0aebd463-7c5e-4d0b-ad22-4da8f4b54e92_squares.gif
 
-This component keeps track of a list of "square ids" on the one hand,
-and the currently active id on the other. That's two slices of state!
-One is used as the source of truth to render the squares, and the other
-so that the component knows which square is currently active.
+// This component keeps track of a list of "square ids" on the one hand,
+// and the currently active id on the other. That's two slices of state!
+// One is used as the source of truth to render the squares, and the other
+// so that the component knows which square is currently active.
 
-Only one square (or none) can be active at any given point.
+// Only one square (or none) can be active at any given point.
 
-Find comments below to help you along.
-*/
+// Find comments below to help you along.
+// */
 
-import React, {useState} from 'react';
+ import React, {useState} from 'react';
 
-// Use this variable ONLY to initialize a slice of state!
-const listOfSquareIds = ['sqA', 'sqB', 'sqC', 'sqD'];
+// // Use this variable ONLY to initialize a slice of state!
+ const listOfSquareIds = ['sqA', 'sqB', 'sqC', 'sqD'];
 
-export default function Squares() {
-  const [squares, setSquares] = useState(listOfSquareIds)
-const [activeSquare, setActiveSquare] = useState(listOfSquareIds)
+ export default function Squares() {
+   const [squares, setSquares] = useState(listOfSquareIds)
+ const [activeSquare, setActiveSquare] = useState(listOfSquareIds)
 
   // Use the state hook twice, as we need two slices of state: 'squares' and
   // 'activeSquare'. One holds the _array_ of square ids, and the other keeps track
   // of the currently active square (if any).
 
-  const isActive = id => {
+   const isActive = id => {
     // This is not a click handler but a helper, used inside the JSX, (See below)
     // and should return a class name of active if the id passed
     // matches the active square in state, empty string otherwise.
     // Right-click and "inspect element" on the square to see its effect.
 
-    // id === activeSquare
-    // return setActiveSquare.className = ' active'
+    //  id === activeSquare
+    //  return setActiveSquare.className = ' active'
 
     if (id === activeSquare){
 
@@ -42,36 +42,38 @@ const [activeSquare, setActiveSquare] = useState(listOfSquareIds)
     }else{
       return ''
     }
-  };
+   };
 
-  const markActive = id => {
+   const markActive = id => {
     // This is a helper used inside an _inlined_ click handler. (See below)
     // Set the id argument to be the active id in state
     // (unless it already is, in which case we should reset
     // the currently active square id back to initial state).
-  // activeSquare.selectedIndex === id
+  //  === id
     //console.log(id)
 //     console.log('square selected')
   
+// for(let i = 0; i <= squares.length; i++){
+//    console.log(document.getElementById(squares[i]))
+// setSquares({
+//   squares[id] = isChecked
+// })
 
+let selectedSquare = document.getElementById(id)
+console.log(id)
+if(selectedSquare.clicked === activeSquare.selectedIndex ){
+  selectedSquare.clicked === false
+  
+  return selectedSquare.className = 'square active'
+  
+ }
 
-for(let i = 0; i <= squares.length; i++){
-   console.log(document.getElementById(squares[i]))
+   }
 
-if(document.getElementById(id) === activeSquare.selectedIndex ){
-  document.getElementById(id).checked=false
-}
+     
+  
+   
 
-//   document.getElementById(squares[i]).checked = false
-// }   
-// document.getElementById(id).checked = true
-
-return document.getElementById(id).className = 'square active'
-//     //console.log(selectedSquare.className)
-      //
-  }
-
-  }
 
   return (
     <div className='widget-squares container'>
